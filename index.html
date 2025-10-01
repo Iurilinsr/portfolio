@@ -14,27 +14,27 @@
     <nav class="navegacao">
         <ul class="menu">
             <li>
-                <a href="#Inicio" class="menu-link">início</a>
+                <a href="#inicio" class="menu-link">início</a>
             </li>
             <li>
-                <a href="#Sobre" class="menu-link">Sobre</a>
+                <a href="#sobre" class="menu-link">Sobre</a>
             </li>
             <li>
-                <a href="#Projetos" class="menu-link">Projetos</a>
+                <a href="#projetos" class="menu-link">Projetos</a>
             </li>
             <li>
-                <a href="#Contato" class="menu-link">Contato</a>
+                <a href="#contatos" class="menu-link">Contato</a>
             </li>
         </ul>
     </nav>
 
-    <main id="#Inicio" class="cabecalho">
+    <main id="inicio" class="cabecalho">
         <img src="./img/avatar_personalizado.jpg" alt="Foto de Iuriel" class="foto-perfil">
         <h1>Iuriel Rodrigues</h1>
         <p class="cabecallho-sub-titulo">Desenvolvedo javascript</p>
     </main>
 
-    <section id="Sobre" class="Sobre">
+    <section id="sobre" class="sobre">
         <h2 class="sobre-titulo">Sobre Mim </h2>
         <div class="sobre-caixa">
             <p class="sobre-paragrafo">
@@ -77,17 +77,37 @@
 
     <section id="contatos" class="contatos">
         <h2 class="contatos-titulo">Entre em Contatos</h2>
-        <form class="formulario-contato" id="formulario">
+        <form class="formulario-contato" id="formulario" onsubmit="enviarwhats(event)">
             <div class="grupo-form">
-                <input placeholder="Nome" class="campo-form">
+                <input placeholder="Nome" class="campo-form" id="nome">
             </div>
             <div class="grupo-form">
-                <textarea class="campo-form" placeholder="Digite sua Mensagem"></textarea>
+                <textarea class="campo-form" placeholder="Digite sua Mensagem" rows="6" id="mensagem"></textarea>
             </div>
 
             <button type="submit" class="botao-form">Enviar whatsaap</button>
         </form>
     </section>
+
+    <script>
+        function enviarwhats(event) {
+            event.preventDefault()
+
+        
+        const nome = document.getElementById('nome').value;
+        const mensagem = document.getElementById('mensagem').value;
+        const telefone = '5581992622498'
+
+        const texto = `Olá! Me chamo ${nome}, ${mensagem}`
+        const msgFormatada = encodeURIComponent(texto)
+
+        const url = `https://wa.me/${telefone}?text=${msgFormatada}`
+
+        console.log(url);
+        
+
+        window.open(url, '_blank')}
+    </script>
 </body>
 
 </html>
