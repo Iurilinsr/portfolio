@@ -19,10 +19,7 @@ html {
 }
 
 body {
-    background: -webkit-linear-gradient(90deg, #2f0fd2, #0c1fac, #109ad5);
-    /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(90deg, #2f0fd2, #0c1fac, #109ad5);
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background-color: var(--escuro);
     color: var(--claro);
 }
 
@@ -83,6 +80,7 @@ body {
     box-shadow: 0 0 20px rgba(79, 70, 229, 0.3);
     border-radius: 50%;
     border: 4px solid var(--vidro);
+    animation: flutuar 5s ease-in-out infinite;
 
 }
 
@@ -257,4 +255,29 @@ h1 {
     transform: translatey(-4px);
     box-shadow: 0 5px 15px rgba(79, 70, 229, 0.4));
 
+}
+
+.particulas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.5;
+    background:
+        radial-gradient(circle at 10% 20%, var(--primaria) 0%, transparent 20%),
+        radial-gradient(circle at 90% 80%, var(--secundaria) 0%, transparent 20%),
+        var(--maisescuro);
+}
+
+@keyframes flutuar {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+    
 }
